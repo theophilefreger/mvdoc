@@ -7,18 +7,40 @@ services:
     environment:
       - "discovery.type=single-node"
       - "ES_JAVA_OPTS=-Xms2g -Xmx2g"
+
   sist2-admin:
     build:
       context: .
     container_name: sist2-admin
     volumes:
       - /mnt/array/sist2-admin-data/:/sist2-admin/
-      - /:/host
+      - wip:/wip
+      - communication:/communication
+      - archives:/archives
     ports:
-      - 4090:4090
-      # NOTE: Don't export this port publicly!
-      - 8080:8080
+      - "4090:4090"
+      - "8080:8080"
     working_dir: /root/sist2-admin/
     entrypoint: python3
     command:
       - /root/sist2-admin/sist2_admin/app.py
+
+volumes:
+  wip:
+    driver: local
+    driver_opts:
+      type: cifs 
+      device: "//192.168.1.229/WIP"
+      o: "username=rfstudio,password=@genceRF01io01."
+  communication:
+    driver: local
+    driver_opts:
+      type: cifs 
+      device: "//192.168.1.229/Communication"
+      o: "username=rfstudio,password=@genceRF01io01."
+  archives:
+    driver: local
+    driver_opts:
+      type: cifs 
+      device: "//192.168.1.229/Archives"
+      o: "username=rfstudio,password=@genceRF01io01."

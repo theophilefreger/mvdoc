@@ -3,9 +3,8 @@
         <NavBar></NavBar>
         <b-container class="pt-4">
             <b-alert show dismissible variant="info">
-                This is a beta version of sist2-admin. Please submit bug reports, usability issues and feature requests
-                to the <a href="https://github.com/simon987/sist2/issues/new/choose" target="_blank">issue tracker on
-                Github</a>. Thank you!
+                Ceci est une version bêta de Mémoire Vive. Veuillez soumettre les rapports de bugs, les problèmes d'utilisabilité et les demandes de fonctionnalités 
+                à <a href="mailto:tfreger@rfstudio.fr" target="_blank">Théophile Fréger</a>. Merci !
             </b-alert>
             <router-view v-if="$store.state.sist2AdminInfo"/>
         </b-container>
@@ -64,7 +63,7 @@ html, body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     /*text-align: center;*/
-    color: #2c3e50;
+    color: #236fbb;
     padding-bottom: 1em;
     min-height: 100%;
 }
